@@ -1,0 +1,40 @@
+Cambios aplicados
+SEO & Estructura
+
+Meta tags completos: description, keywords, author, canonical
+Open Graph (Facebook/WhatsApp previews al compartir el link)
+JSON-LD de BeautySalon con horarios, dirección y contacto para que Google muestre tu negocio en búsquedas locales
+aria-label en secciones clave para accesibilidad
+Conversión y UX
+
+Botón flotante de WhatsApp — siempre visible, con tooltip en hover
+CTA sticky en mobile — barra fija abajo en celular: "Agendar mi cita"
+Menú hamburguesa — funcional en mobile, con animación de apertura/cierre
+Trust indicators en hero — "Evaluación gratuita · Sin dolor · Resultados duraderos"
+Badge de disponibilidad en la sección de agenda
+Secciones nuevas
+
+Barra de estadísticas — 500+ clientas, 5★ Google, 4 años experiencia, 100% personalizado — con contador animado
+Sección FAQ con accordion — 7 preguntas frecuentes que reducen la fricción para reservar (duración, dolor, cuidados, piel grasa, contraindicaciones)
+Horarios en el footer y en contacto
+Animaciones
+
+Scroll reveal suave en todas las secciones con IntersectionObserver (sin librerías externas)
+Nav con sombra al hacer scroll
+Hover elevado en cards de servicios y reseñas
+Recomendaciones para escalar
+Corto plazo (1–4 semanas)
+
+Dominio propio — Registra mbelartstudio.mx y sube el HTML ahí. El JSON-LD ya apunta a esa URL.
+Google Business Profile — Crea o reclaima el perfil en Google Maps con fotos reales. Es la fuente #1 de clientes locales para servicios de belleza.
+Cambia los placeholders — número WhatsApp real, URL de Google Reviews, y sube una foto real de OG (og-image.jpg)
+Mediano plazo (1–3 meses)
+4. Feed de Instagram embebido — Conecta EmbedSocial o Behold.so para mostrar tus posts reales automáticamente en la sección de galería.
+5. Calendly o Acuity incrustado — Reemplaza el botón del calendario con un iframe de Calendly embebido directamente en la página; reduces 1 clic y subes conversión ~20–30%.
+6. Meta Pixel — Instala el pixel de Facebook para retargeting (mostrar anuncios a quienes visitaron la página pero no agendaron).
+7. Google Analytics 4 — Para saber qué sección tiene más scroll, qué botón se hace click y de dónde vienen las visitas.
+
+Largo plazo (3+ meses)
+8. Blog SEO — Artículos como "Microblading vs Hair Strokes: ¿cuál te conviene?" o "Cuidados después del microblading" capturan tráfico orgánico de Google que ya está buscando el servicio.
+9. Programa de referidos — Tarjeta digital: "Recomienda a una amiga y gana X% en tu próximo retoque". Muy efectivo en servicios de belleza.
+10. Email marketing — Captura el correo al agendar y envía recordatorios de retoque a los 10–12 meses. Mailchimp tiene plan gratis hasta 500 contactos.
