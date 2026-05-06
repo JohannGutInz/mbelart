@@ -8,9 +8,20 @@
 <title>M Belart Studio — Natural Brows</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
 </head>
-<body>
-  
+<body class="is-loading">
 
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pre-inner">
+    <p class="pre-ornament">✦</p>
+    <p class="pre-brand">M Belart Studio</p>
+    <p class="pre-tag">Natural Brows by Mar Beltrán</p>
+    <div class="pre-bar-wrap">
+      <div class="pre-bar" id="preBar"></div>
+    </div>
+    <p class="pre-percent" id="prePercent">0%</p>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -374,5 +385,46 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="animation.js"></script>
 <script>lucide.createIcons();</script>
+
+<script>
+  (function () {
+    const loader  = document.getElementById('preloader');
+    const bar     = document.getElementById('preBar');
+    const pctEl   = document.getElementById('prePercent');
+    let progress  = 0;
+    let completed = false;
+
+    function setProgress(val) {
+      progress = Math.min(val, 100);
+      bar.style.width     = progress + '%';
+      pctEl.textContent   = Math.round(progress) + '%';
+    }
+
+    /* Animación suave hasta ~85 % mientras carga */
+    const ticker = setInterval(function () {
+      if (progress < 85) {
+        setProgress(progress + (85 - progress) * 0.045 + 0.4);
+      }
+    }, 40);
+
+    function finish() {
+      if (completed) return;
+      completed = true;
+      clearInterval(ticker);
+      setProgress(100);
+      setTimeout(function () {
+        loader.style.opacity    = '0';
+        loader.style.visibility = 'hidden';
+        document.body.classList.remove('is-loading');
+        setTimeout(function () { loader.remove(); }, 700);
+      }, 350);
+    }
+
+    /* Completar al cargar todos los recursos */
+    window.addEventListener('load', finish);
+    /* Fallback: forzar cierre a los 6 s por si el video tarda */
+    setTimeout(finish, 6000);
+  })();
+</script>
 </body>
 </html>
