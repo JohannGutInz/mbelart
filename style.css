@@ -279,59 +279,203 @@
   }
   .eval-desc { font-size: 0.8rem; color: var(--warm); line-height: 1.7; }
 
-  /* GALERIA */
-  #galeria { background: var(--cream); }
-  .gallery-grid {
+  /* =============================================
+     DESTACADOS — Bento Grid + Scroll Mobile
+     ============================================= */
+  #destacados {
+    background: var(--white);
+    padding: 6rem 3rem;
+  }
+
+  /* --- BENTO GRID (desktop) --- */
+  .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
-    gap: 6px;
-    max-width: 1100px; margin: 0 auto;
+    grid-template-rows: 300px 300px;
+    gap: 10px;
+    max-width: 1160px;
+    margin: 0 auto;
   }
-  .gal-cell {
-    aspect-ratio: 3/4;
-    background: var(--beige);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem; color: var(--warm);
-    letter-spacing: 0.1em; overflow: hidden;
-    position: relative;
-  }
-  .gal-cell.wide { grid-column: span 2; aspect-ratio: 3/2; }
-  .gal-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(44,36,32,0.5));
-    color: var(--cream); padding: 1.5rem 1rem 0.8rem;
-    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-    z-index: 2;
-  }
-  .gal-icon { font-size: 3rem; opacity: 0.25; z-index: 1; position: relative; }
 
-  /* Ken-Burns: fondo de cada celda */
-  .gal-bg {
-    position: absolute; inset: 0;
-    background-size: 110%;
-    background-position: center;
-    animation: kenBurns 18s ease-in-out infinite alternate;
-    will-change: transform, background-size;
-    transition: opacity 0.9s ease;
+  /* Posiciones de cada celda */
+  .bento-cell:nth-child(1) { grid-column: 1;     grid-row: 1 / 3; } /* tall  */
+  .bento-cell:nth-child(2) { grid-column: 2 / 4; grid-row: 1;     } /* wide  */
+  .bento-cell:nth-child(3) { grid-column: 4;     grid-row: 1;     }
+  .bento-cell:nth-child(4) { grid-column: 2;     grid-row: 2;     }
+  .bento-cell:nth-child(5) { grid-column: 3 / 5; grid-row: 2;     } /* wide  */
+
+  .bento-cell {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
   }
-  @keyframes kenBurns {
-    0%   { transform: scale(1)    translate(0%, 0%); }
-    33%  { transform: scale(1.06) translate(-1.5%, 1%); }
-    66%  { transform: scale(1.04) translate(1%, -1%); }
-    100% { transform: scale(1.08) translate(-0.5%, 0.5%); }
-  }
-  /* Imagen real cuando cargue */
-  .gal-img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
+
+  .bento-cell img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.2s ease;
-    z-index: 1;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-  .gal-img.loaded { opacity: 1; }
+
+  .bento-cell:hover img {
+    transform: scale(1.06);
+  }
+
+  /* --- Overlay compartido (bento + cards) --- */
+  .bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 50%, rgba(44,36,32,0.68));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.4rem 1.6rem;
+    transition: background 0.45s ease;
+  }
+
+  .bento-cell:hover .bento-overlay {
+    background: linear-gradient(transparent 25%, rgba(44,36,32,0.8));
+  }
+
+  .bento-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--warm);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  .bento-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+
+  /* --- SCROLL HORIZONTAL (mobile only) --- */
+  .bento-scroll-wrap {
+    display: none;
+  }
+
+  .bento-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1.2rem 0.5rem;
+    scrollbar-width: none;
+  }
+  .bento-scroll::-webkit-scrollbar { display: none; }
+
+  .bento-card {
+    flex: 0 0 72vw;
+    max-width: 320px;
+    height: 280px;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .bento-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bento-card .bento-overlay {
+    background: linear-gradient(transparent 40%, rgba(44,36,32,0.72));
+  }
+
+  .scroll-hint {
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--warm);
+    margin-top: 1.2rem;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    #destacados { padding: 4.5rem 0 4rem; }
+    #destacados .section-label,
+    #destacados .section-title,
+    #destacados .divider,
+    #destacados .section-sub { padding: 0 1.2rem; }
+    .bento-grid        { display: none; }
+    .bento-scroll-wrap { display: block; }
+  }
+
+  /* GALERIA */
+  #galeria { background: var(--cream); padding: 6rem 3rem; }
+
+  .gallery-masonry {
+    columns: 3;
+    column-gap: 10px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .gal-item {
+    break-inside: avoid;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1px;
+  }
+
+  .gal-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .gal-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gal-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 50%, rgba(44,36,32,0.62));
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem 1rem;
+  }
+
+  .gal-item:hover .gal-overlay {
+    opacity: 1;
+  }
+
+  .gal-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  @media (max-width: 900px) {
+    .gallery-masonry { columns: 2; column-gap: 8px; }
+    .gal-item { margin-bottom: 8px; }
+    #galeria { padding: 5rem 2rem; }
+  }
+
+  @media (max-width: 520px) {
+    .gallery-masonry { columns: 1; }
+    #galeria { padding: 4rem 1.2rem; }
+  }
 
   /* RESEÑAS */
   #resenas { background: var(--white); overflow: hidden; }
@@ -523,7 +667,5 @@
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-text { padding: 4rem 1.5rem 2rem; order: 2; }
     .hero-image { height: 60vw; min-height: 260px; order: 1; }
-    .gallery-grid { grid-template-columns: repeat(2,1fr); }
-    .gal-cell.wide { grid-column: span 2; }
     section { padding: 4rem 1.2rem; }
   }
