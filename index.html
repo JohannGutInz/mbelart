@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="style.css">
 <title>M Belart Studio — Natural Brows</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="assets/fotos/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/fotos/favicon/favicon.svg">
+<link rel="apple-touch-icon" href="assets/fotos/favicon/apple-touch-icon.png">
+<link rel="manifest" href="assets/fotos/favicon/site.webmanifest">
 </head>
 <body class="is-loading">
 
@@ -25,7 +29,10 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">M Belart Studio</a>
+  <a href="#" class="nav-logo">
+    <img src="assets/fotos/favicon/favicon-96x96.png" alt="M Belart Studio" class="nav-logo-img">
+    <span class="nav-logo-text">M Belart Studio</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#galeria">Galería</a></li>
@@ -37,21 +44,11 @@
 <!-- HERO -->
 <section class="hero" id="inicio">
 
-  <!-- ✦ REEMPLAZA src="" CON LA URL DE TU VIDEO .mp4 ✦ -->
   <video class="hero-video-bg"
     autoplay muted loop playsinline
     src="assets/video/cinemaMary.mp4"
-    poster="">
+    poster="assets/fotos/organic-brows/A8319B81-B81E-4E31-ADC8-4E56F4619D2D.jpeg">
   </video>
-
-  <!-- Placeholder visible hasta que se suba el video -->
-  <div class="hero-video-placeholder" id="placeholder">
-    <div class="placeholder-hint">
-      ✦<br/>
-      Aquí va el video de fondo<br/>
-      <span style="font-size:0.7rem; letter-spacing:0.2em;">M Belart Studio · Microblading</span>
-    </div>
-  </div>
 
   <!-- Overlay oscuro sobre el video -->
   <div class="hero-overlay"></div>
@@ -77,14 +74,6 @@
   </div>
 </section>
 
-<script>
-  // Ocultar placeholder cuando el video cargue
-  const vid = document.querySelector('.hero-video-bg');
-  const ph  = document.getElementById('placeholder');
-  if (vid && vid.src) {
-    vid.addEventListener('canplay', () => { if(ph) ph.style.display='none'; });
-  }
-</script>
 
 <!-- SERVICIOS -->
 <section id="servicios">
@@ -93,11 +82,17 @@
   <div class="divider"></div>
   <p class="section-sub">Cada técnica está seleccionada según tu tipo de piel, forma de rostro y el look que deseas lograr.</p>
   <div class="services-grid">
+    <div class="service-card service-card--featured">
+      <div class="service-icon"><i data-lucide="palette"></i></div>
+      <div class="service-name">Organic Brows</div>
+      <div class="service-desc">Sombreado suave y orgánico que crea cejas densas con textura natural. Sin trazos visibles, solo una densidad perfecta que realza tu mirada.</div>
+      <div class="service-price">Técnica estrella ✦</div>
+    </div>
     <div class="service-card">
       <div class="service-icon"><i data-lucide="pen-tool"></i></div>
       <div class="service-name">Microblading</div>
       <div class="service-desc">Trazos ultrafinos que imitan el pelo natural, perfectos para pieles normales o secas. Resultado hiperrealista.</div>
-      <div class="service-price">Tratamiento estrella</div>
+      <div class="service-price">Resultado natural</div>
     </div>
     <div class="service-card">
       <div class="service-icon"><i data-lucide="brush"></i></div>
@@ -106,21 +101,15 @@
       <div class="service-price">Efecto natural</div>
     </div>
     <div class="service-card">
-<div class="service-icon"><i data-lucide="palette"></i></div>
-      <div class="service-name">Shading</div>
-      <div class="service-desc">Sombreado que da volumen y definición. Ideal para quienes buscan cejas más marcadas o con efecto maquillado.</div>
-      <div class="service-price">Definición máxima</div>
-    </div>
-    <div class="service-card">
-<div class="service-icon"><i data-lucide="pen-line"></i></div>
+      <div class="service-icon"><i data-lucide="pen-line"></i></div>
       <div class="service-name">Frida Brows</div>
       <div class="service-desc">Nuestra técnica especial de hairstrokes gruesos con inspiración en cejas espesas y llenas de carácter.</div>
       <div class="service-price">Técnica exclusiva</div>
     </div>
     <div class="service-card">
-<div class="service-icon"><i data-lucide="eye"></i></div>
-      <div class="service-name">Tratamientos de Ojos</div>
-      <div class="service-desc">Delineado permanente, pestañas y tratamientos especiales para realzar tu mirada de forma duradera.</div>
+      <div class="service-icon"><i data-lucide="eye"></i></div>
+      <div class="service-name">Baby Liner & Pestañas</div>
+      <div class="service-desc">Delineado sutil tipo baby liner y punteado de pestañas para realzar tu mirada de forma natural y duradera.</div>
       <div class="service-price">Mirada definida</div>
     </div>
     <div class="service-card" style="background:var(--dark); border-color:var(--dark);">
@@ -161,114 +150,98 @@
     </div>
   </div>
 </section>
-<!-- DESTACADOS: Bento Grid (desktop) + Scroll horizontal (mobile) -->
+<!-- GALERÍA POR SECCIONES -->
 <section id="galeria">
   <p class="section-label">Resultados reales</p>
   <h2 class="section-title">El arte de las <em>cejas perfectas</em></h2>
   <div class="divider"></div>
-  <p class="section-sub">Cinco técnicas, un mismo compromiso: resultados naturales hechos a medida.</p>
+  <p class="section-sub">Cada técnica, un mismo compromiso: resultados naturales hechos a medida.</p>
 
-  <!-- BENTO GRID — visible solo en desktop -->
-  <div class="bento-grid">
-
-    <div class="bento-cell">
-      <img src="assets/fotos/9DB68611-79EE-4666-899C-9B9830F9A8E8.jpeg" alt="Microblading" loading="lazy"/>
-      <div class="bento-overlay">
-        <span class="bento-num">01</span>
-        <span class="bento-name">Microblading</span>
-      </div>
-    </div>
-
-    <div class="bento-cell">
-      <img src="assets/fotos/A8319B81-B81E-4E31-ADC8-4E56F4619D2D.jpeg" alt="Hair Strokes" loading="lazy"/>
-      <div class="bento-overlay">
-        <span class="bento-num">02</span>
-        <span class="bento-name">Hair Strokes</span>
-      </div>
-    </div>
-
-    <div class="bento-cell">
-      <img src="assets/fotos/C5DEEFB5-02EE-45D4-92BC-06A20983E794.jpeg" alt="Shading" loading="lazy"/>
-      <div class="bento-overlay">
-        <span class="bento-num">03</span>
-        <span class="bento-name">Shading</span>
-      </div>
-    </div>
-
-    <div class="bento-cell">
-      <img src="assets/fotos/CF568CC2-756C-44B9-98ED-BFC4E6B83FCD.jpeg" alt="Frida Brows" loading="lazy"/>
-      <div class="bento-overlay">
-        <span class="bento-num">04</span>
-        <span class="bento-name">Frida Brows</span>
-      </div>
-    </div>
-
-    <div class="bento-cell">
-      <img src="assets/fotos/D9EAB9D1-A105-49B9-903B-44D7E7AE4F31.jpeg" alt="Tratamiento Ojos" loading="lazy"/>
-      <div class="bento-overlay">
-        <span class="bento-num">05</span>
-        <span class="bento-name">Tratamiento Ojos</span>
-      </div>
-    </div>
-
+  <!-- Tabs de navegación por categoría -->
+  <div class="gallery-tabs" role="tablist">
+    <button class="gallery-tab active" data-cat="organic-brows" role="tab" aria-selected="true">
+      Organic Brows <span class="tab-star">✦</span>
+    </button>
+    <button class="gallery-tab" data-cat="hair-strokes" role="tab" aria-selected="false">Hair Strokes</button>
+    <button class="gallery-tab" data-cat="microblading" role="tab" aria-selected="false">Microblading</button>
+    <button class="gallery-tab" data-cat="frida-brows" role="tab" aria-selected="false">Frida Brows</button>
+    <button class="gallery-tab" data-cat="baby-liner" role="tab" aria-selected="false">Baby Liner</button>
+    <button class="gallery-tab" data-cat="punteado-pestanas" role="tab" aria-selected="false">Pestañas</button>
   </div>
 
-  <!-- SCROLL HORIZONTAL — visible solo en mobile -->
-  <div class="bento-scroll-wrap">
-    <div class="bento-scroll">
-
-      <div class="bento-card">
-        <img src="assets/fotos/9DB68611-79EE-4666-899C-9B9830F9A8E8.jpeg" alt="Microblading" loading="lazy"/>
-        <div class="bento-overlay">
-          <span class="bento-num">01</span>
-          <span class="bento-name">Microblading</span>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <img src="assets/fotos/A8319B81-B81E-4E31-ADC8-4E56F4619D2D.jpeg" alt="Hair Strokes" loading="lazy"/>
-        <div class="bento-overlay">
-          <span class="bento-num">02</span>
-          <span class="bento-name">Hair Strokes</span>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <img src="assets/fotos/C5DEEFB5-02EE-45D4-92BC-06A20983E794.jpeg" alt="Shading" loading="lazy"/>
-        <div class="bento-overlay">
-          <span class="bento-num">03</span>
-          <span class="bento-name">Shading</span>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <img src="assets/fotos/CF568CC2-756C-44B9-98ED-BFC4E6B83FCD.jpeg" alt="Frida Brows" loading="lazy"/>
-        <div class="bento-overlay">
-          <span class="bento-num">04</span>
-          <span class="bento-name">Frida Brows</span>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <img src="assets/fotos/D9EAB9D1-A105-49B9-903B-44D7E7AE4F31.jpeg" alt="Tratamiento Ojos" loading="lazy"/>
-        <div class="bento-overlay">
-          <span class="bento-num">05</span>
-          <span class="bento-name">Tratamiento Ojos</span>
-        </div>
-      </div>
-
-      <div class="bento-card">
-        <img src="assets/fotos/D86851D9-6FEC-4316-8446-25476CE34E82.jpeg" alt="Resultado" loading="lazy"/>
-        <div class="bento-overlay">
-          <span class="bento-num">✦</span>
-          <span class="bento-name">M Belart Studio</span>
-        </div>
-      </div>
-
+  <!-- Panel: Organic Brows (activo por defecto) -->
+  <div class="gallery-panel active" data-cat="organic-brows" role="tabpanel">
+    <div class="gallery-masonry">
+      <div class="gal-item"><img src="assets/fotos/organic-brows/A8319B81-B81E-4E31-ADC8-4E56F4619D2D.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/9DB68611-79EE-4666-899C-9B9830F9A8E8.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/C5DEEFB5-02EE-45D4-92BC-06A20983E794.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/37D78ABA-C2D6-44B3-BFA5-11512D7BB1F5.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/623BA4FF-3741-4FE6-B0B2-248562AB5706.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/742142AA-4BD3-487A-B93E-C5F0466D1F07.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/7A9E69DF-83A2-4510-AD30-4AC5BEAC6617.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/7AEFE3CA-72E8-4BC1-932E-87084D22CF98.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/7FFE5E92-5DAD-4F3D-B6EC-F263BDED6506.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/F3ED37BC-8EE4-43FC-A9BB-28D02CDEC495.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/organic-brows/F5432DEB-F33F-4CCD-9AFF-16EB4FAEBB17.jpeg" alt="Organic Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Organic Brows</span></div></div>
     </div>
-    <!-- indicador de scroll -->
-    <p class="scroll-hint">Desliza para ver más →</p>
   </div>
+
+  <!-- Panel: Hair Strokes -->
+  <div class="gallery-panel" data-cat="hair-strokes" role="tabpanel">
+    <div class="gallery-masonry">
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/0CA0B29D-40AF-48CD-8D55-A5E8ACE8EBE2.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/0CF4B19C-1F88-4AEA-A56B-529E06AC45C7.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/328C4FCD-FE9F-4C9E-875D-6E4AF0F3A816.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/53914BAB-EEC9-4DDB-B561-BD6D93567409.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/91BF9543-1A9A-4612-B8AE-904EBD6E3796.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/A9DD7B2B-D12A-4B8A-B385-DEE51C43B610.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/C1AD0DA0-AE94-4E69-80A7-B053D3AD68C1.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/D86851D9-6FEC-4316-8446-25476CE34E82.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/D9EAB9D1-A105-49B9-903B-44D7E7AE4F31.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/DA07F8C8-9118-4F20-823C-55440164B850.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/E6CFFC8C-454C-48C2-B18A-FE372048BAD1.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/FCA290E0-A054-4D60-9EAF-83ADA0099327.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/FCC65DFB-4B40-4E91-8B93-D1468C8B5652.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/hair-strokes/FE839ECE-015A-47C8-BB21-8A67C2890C76.jpeg" alt="Hair Strokes" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Hair Strokes</span></div></div>
+    </div>
+  </div>
+
+  <!-- Panel: Microblading -->
+  <div class="gallery-panel" data-cat="microblading" role="tabpanel">
+    <div class="gallery-masonry">
+      <div class="gal-item"><img src="assets/fotos/microblading/174E0FB6-2FE3-4E85-AD66-5C6E00815960.jpg" alt="Microblading" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Microblading</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/microblading/5CE4CCED-ED81-4DCF-9FD1-F95929D67A2F.jpeg" alt="Microblading" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Microblading</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/microblading/5E752751-C6C2-403D-95E7-5A3B566C2D4D.jpeg" alt="Microblading" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Microblading</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/microblading/F6E7E3C0-F7F2-43A7-A0F6-5B87601A65AB.jpeg" alt="Microblading" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Microblading</span></div></div>
+    </div>
+  </div>
+
+  <!-- Panel: Frida Brows -->
+  <div class="gallery-panel" data-cat="frida-brows" role="tabpanel">
+    <div class="gallery-masonry">
+      <div class="gal-item"><img src="assets/fotos/frida-brows/3FA2A060-C082-4825-B255-4054A9168AAE.jpeg" alt="Frida Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Frida Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/frida-brows/57C16BFB-7CB4-4E31-9A0E-D11844693ACE.jpeg" alt="Frida Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Frida Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/frida-brows/8961AB3D-6FEE-422E-A288-77CAF5BD2D76.jpeg" alt="Frida Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Frida Brows</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/frida-brows/CF568CC2-756C-44B9-98ED-BFC4E6B83FCD.jpeg" alt="Frida Brows" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Frida Brows</span></div></div>
+    </div>
+  </div>
+
+  <!-- Panel: Baby Liner -->
+  <div class="gallery-panel" data-cat="baby-liner" role="tabpanel">
+    <div class="gallery-masonry">
+      <div class="gal-item"><img src="assets/fotos/baby-liner/1C2EC8EA-A269-44EE-BCE7-BA8FA479106F.jpeg" alt="Baby Liner" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Baby Liner</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/baby-liner/406C1921-5554-4D3C-9CEF-83AED6FAAEB2.jpeg" alt="Baby Liner" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Baby Liner</span></div></div>
+      <div class="gal-item"><img src="assets/fotos/baby-liner/C860524C-549A-491D-B052-E15103FFCDE2.jpeg" alt="Baby Liner" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Baby Liner</span></div></div>
+    </div>
+  </div>
+
+  <!-- Panel: Punteado de Pestañas -->
+  <div class="gallery-panel" data-cat="punteado-pestanas" role="tabpanel">
+    <div class="gallery-masonry gallery-masonry--single">
+      <div class="gal-item"><img src="assets/fotos/punteado-pestanas/A328CE08-8193-475A-A20F-1BC4EF181568.jpeg" alt="Punteado de Pestañas" loading="lazy"><div class="gal-overlay"><span class="gal-tag">Punteado de Pestañas</span></div></div>
+    </div>
+  </div>
+
 </section>
 
 <!-- RESEÑAS -->
@@ -365,7 +338,7 @@
     Monterrey, Nuevo León · Atención personalizada por WhatsApp
   </p>
   <div class="contact-grid">
-    <a href="https://wa.me/52XXXXXXXXXX" target="_blank" class="contact-btn btn-wa">
+    <a href="http://wa.link/2m17bl" target="_blank" class="contact-btn btn-wa">
       💬 WhatsApp
     </a>
     <a href="https://instagram.com/mbelartstudio.mx" target="_blank" class="contact-btn btn-ig">
@@ -385,6 +358,24 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="animation.js"></script>
 <script>lucide.createIcons();</script>
+
+<script>
+  document.querySelectorAll('.gallery-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.gallery-tab').forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.gallery-panel').forEach(function(p) {
+        p.classList.remove('active');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      var cat = tab.getAttribute('data-cat');
+      document.querySelector('.gallery-panel[data-cat="' + cat + '"]').classList.add('active');
+    });
+  });
+</script>
 
 <script>
   (function () {

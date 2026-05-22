@@ -110,9 +110,26 @@
     border-bottom: 1px solid rgba(201,180,154,0.2);
   }
   .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em;
-    color: var(--dark); text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--dark);
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -152,19 +169,6 @@
       rgba(44,36,32,0.45) 55%,
       rgba(44,36,32,0.15) 100%
     );
-  }
-  /* Placeholder visible cuando no hay video */
-  .hero-video-placeholder {
-    position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(135deg, #2c2420 0%, #6b5c50 50%, #c9b49a 100%);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .placeholder-hint {
-    color: rgba(255,255,255,0.15);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; letter-spacing: 0.3em; text-transform: uppercase;
-    text-align: center; line-height: 2;
-    pointer-events: none;
   }
 
   .hero-text {
@@ -555,6 +559,108 @@
   @media (max-width: 520px) {
     .gallery-masonry { columns: 1; }
     #galeria { padding: 4rem 1.2rem; }
+  }
+
+  .gallery-masonry--single {
+    columns: 1 !important;
+    max-width: 480px;
+  }
+
+  /* =============================================
+     GALLERY TABS
+     ============================================= */
+  .gallery-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1160px;
+    margin: 0 auto 2.5rem;
+    border-bottom: 1px solid var(--beige);
+  }
+
+  .gallery-tab {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+
+  .gallery-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 1px;
+    background: var(--dark);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-tab:hover { color: var(--dark); }
+
+  .gallery-tab.active {
+    color: var(--dark);
+  }
+
+  .gallery-tab.active::after {
+    transform: scaleX(1);
+  }
+
+  .tab-star {
+    color: var(--accent);
+    font-size: 0.6rem;
+    margin-left: 0.25rem;
+    vertical-align: middle;
+  }
+
+  .gallery-panel {
+    display: none;
+  }
+
+  .gallery-panel.active {
+    display: block;
+  }
+
+  /* Organic Brows — card destacada */
+  .service-card--featured {
+    background: var(--cream);
+    border-color: var(--warm);
+    position: relative;
+  }
+
+  .service-card--featured .service-price {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  .service-card--featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--warm);
+  }
+
+  @media (max-width: 768px) {
+    .gallery-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 0 1.2rem;
+      scrollbar-width: none;
+    }
+    .gallery-tabs::-webkit-scrollbar { display: none; }
+    .gallery-tab { padding: 0.7rem 1rem; font-size: 0.65rem; }
   }
 
   /* RESEÑAS */
