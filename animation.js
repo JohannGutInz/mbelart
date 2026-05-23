@@ -197,6 +197,20 @@ document.querySelectorAll('.contact-btn').forEach((el, i) => {
   obs.observe(el);
 });
 
+/* --- Ubicación: activar section-label y divider con threshold bajo --- */
+const ubiSection = document.querySelector('#ubicacion');
+if (ubiSection) {
+  ubiSection.querySelectorAll('.section-label, .divider').forEach(el => obsEarly.observe(el));
+}
+
+/* --- Ubicación: address + map --- */
+const ubiAddress = document.querySelector('.ubicacion-address');
+const ubiActions = document.querySelector('.ubi-actions');
+const ubiMap     = document.querySelector('.ubicacion-map-wrap');
+if (ubiAddress) { ubiAddress.classList.add('reveal'); obs.observe(ubiAddress); }
+if (ubiActions) { ubiActions.classList.add('reveal'); obs.observe(ubiActions); }
+if (ubiMap)     { ubiMap.classList.add('reveal');     obsEarly.observe(ubiMap); }
+
 /* --- Reveal: footer --- */
 const footer = document.querySelector('footer');
 if (footer) { footer.classList.add('reveal'); obsEarly.observe(footer); }

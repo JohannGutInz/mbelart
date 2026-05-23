@@ -663,6 +663,138 @@
     .gallery-tab { padding: 0.7rem 1rem; font-size: 0.65rem; }
   }
 
+  /* =============================================
+     UBICACIÓN
+     ============================================= */
+  #ubicacion {
+    background: var(--dark);
+    padding: 7rem 3rem;
+  }
+
+  .ubicacion-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 3rem;
+    max-width: 1160px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .ubicacion-address {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    margin: 2.2rem 0 2.5rem;
+    padding-left: 1.2rem;
+    border-left: 1px solid rgba(201,180,154,0.25);
+    gap: 0.4rem;
+  }
+
+  .ubi-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+
+  .ubi-line {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+    line-height: 1.9;
+    opacity: 0.85;
+  }
+
+  .ubi-coords {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    color: var(--warm);
+    opacity: 0.45;
+    margin: 0 0 2rem;
+    text-transform: uppercase;
+  }
+
+  .ubi-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .ubi-cta {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--warm);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 0.15rem;
+    transition: color 0.3s;
+  }
+
+  .ubi-cta::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--warm);
+    transform: scaleX(0.4);
+    transform-origin: left;
+    transition: transform 0.35s ease, background 0.3s;
+  }
+
+  .ubi-cta:hover { color: var(--cream); }
+  .ubi-cta:hover::after { transform: scaleX(1); background: var(--cream); }
+  .ubi-cta--secondary { opacity: 0.55; }
+  .ubi-cta--secondary:hover { opacity: 1; }
+
+  .ubicacion-map-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .ubicacion-map-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border: 1px solid rgba(201,180,154,0.15);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .ubicacion-map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    filter: brightness(0.88) contrast(1.04);
+    transition: filter 0.55s ease;
+  }
+
+  .ubicacion-map-wrap:hover iframe {
+    filter: brightness(1) contrast(1);
+  }
+
+  @media (max-width: 900px) {
+    .ubicacion-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    #ubicacion { padding: 5rem 1.5rem; }
+    .ubicacion-map-wrap { aspect-ratio: 16 / 9; }
+    .ubi-actions { flex-direction: row; flex-wrap: wrap; }
+    .ubicacion-map-wrap iframe { filter: none; }
+  }
+
   /* RESEÑAS */
   #resenas { background: var(--white); overflow: hidden; }
   .reviews-track-wrap {
