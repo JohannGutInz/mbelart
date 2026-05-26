@@ -33,6 +33,11 @@
   <meta name="twitter:description" content="Organic Brows, Microblading, Hair Strokes y más. Evaluación gratuita en Monterrey.">
   <meta name="twitter:image" content="https://mbelartstudio.mx/assets/fotos/organic-brows/A8319B81-B81E-4E31-ADC8-4E56F4619D2D.jpeg">
 
+  <!-- ═══ PERFORMANCE: preconnect críticos ═══ -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- ═══ ESTILOS Y FUENTES ═══ -->
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -43,18 +48,13 @@
   <link rel="apple-touch-icon" href="assets/fotos/favicon/apple-touch-icon.png">
   <link rel="manifest" href="assets/fotos/favicon/site.webmanifest">
 
-  <!-- ═══ GOOGLE TAG MANAGER ═══════════════════════════════════════ -->
-  <!-- INSTRUCCIONES:                                                   -->
-  <!-- 1. Crea tu cuenta en tagmanager.google.com                      -->
-  <!-- 2. Reemplaza GTM-XXXXXXX con tu Container ID real               -->
-  <!-- 3. Descomenta ESTE bloque y el noscript justo después de <body> -->
-  <!--
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  -->
+  })(window,document,'script','dataLayer','GTM-NFVZSD25');</script>
 
   <!-- ═══ SCHEMA.ORG — datos estructurados para Google ═══ -->
   <script type="application/ld+json">
@@ -109,26 +109,11 @@
   }
   </script>
 </head>
-<body class="is-loading">
+<body>
 
-<!-- GTM noscript — descomenta cuando configures GTM y reemplaza GTM-XXXXXXX -->
-<!--
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFVZSD25"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
--->
-
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="pre-inner">
-    <p class="pre-ornament">✦</p>
-    <p class="pre-brand">M Belart Studio</p>
-    <p class="pre-tag">Natural Brows by Mar Beltrán</p>
-    <div class="pre-bar-wrap">
-      <div class="pre-bar" id="preBar"></div>
-    </div>
-    <p class="pre-percent" id="prePercent">0%</p>
-  </div>
-</div>
 
 <!-- NAV -->
 <nav aria-label="Navegación principal">
@@ -151,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero" id="inicio">
 
   <video class="hero-video-bg"
-    autoplay muted loop playsinline
+    autoplay muted loop playsinline preload="auto"
     src="assets/video/cinemaMary.mp4"
     poster="assets/fotos/organic-brows/A8319B81-B81E-4E31-ADC8-4E56F4619D2D.jpeg">
   </video>
@@ -530,45 +515,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<script>
-  (function () {
-    const loader  = document.getElementById('preloader');
-    const bar     = document.getElementById('preBar');
-    const pctEl   = document.getElementById('prePercent');
-    let progress  = 0;
-    let completed = false;
-
-    function setProgress(val) {
-      progress = Math.min(val, 100);
-      bar.style.width     = progress + '%';
-      pctEl.textContent   = Math.round(progress) + '%';
-    }
-
-    /* Animación suave hasta ~85 % mientras carga */
-    const ticker = setInterval(function () {
-      if (progress < 85) {
-        setProgress(progress + (85 - progress) * 0.045 + 0.4);
-      }
-    }, 40);
-
-    function finish() {
-      if (completed) return;
-      completed = true;
-      clearInterval(ticker);
-      setProgress(100);
-      setTimeout(function () {
-        loader.style.opacity    = '0';
-        loader.style.visibility = 'hidden';
-        document.body.classList.remove('is-loading');
-        setTimeout(function () { loader.remove(); }, 700);
-      }, 350);
-    }
-
-    /* Completar al cargar todos los recursos */
-    window.addEventListener('load', finish);
-    /* Fallback: forzar cierre a los 6 s por si el video tarda */
-    setTimeout(finish, 6000);
-  })();
-</script>
 </body>
 </html>
