@@ -413,7 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="cal-step"><div class="cal-step-num">2</div> Elige fecha & hora</div>
         <div class="cal-step"><div class="cal-step-num">3</div> Confirma tu cita</div>
       </div>
-      <a href="https://calendar.app.google/Vz6V9bGYnzPzQAHE8" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-block;">
+      <a href="https://calendar.app.google/Vz6V9bGYnzPzQAHE8" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-block;" id="btn-calendar">
         Abrir Calendario de Citas →
       </a>
     </div>
@@ -429,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Monterrey, Nuevo León · Atención personalizada por WhatsApp
   </p>
   <div class="contact-grid">
-    <a href="http://wa.link/2m17bl" target="_blank" class="contact-btn btn-wa">
+    <a href="http://wa.link/2m17bl" target="_blank" class="contact-btn btn-wa" id="btn-whatsapp">
       💬 WhatsApp
     </a>
     <a href="https://instagram.com/mbelartstudio.mx" target="_blank" class="contact-btn btn-ig">
@@ -513,6 +513,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelector('.gallery-panel[data-cat="' + cat + '"]').classList.add('active');
     });
   });
+</script>
+
+<script>
+  (function () {
+    function trackConversion(label) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'virtual_pageview',
+        page_path: '/confirmacion-cita',
+        page_title: 'Confirmación de Cita',
+        conversion_label: label
+      });
+    }
+
+    var btnWa  = document.getElementById('btn-whatsapp');
+    var btnCal = document.getElementById('btn-calendar');
+
+    if (btnWa)  btnWa.addEventListener('click',  function () { trackConversion('whatsapp'); });
+    if (btnCal) btnCal.addEventListener('click',  function () { trackConversion('calendar'); });
+  })();
 </script>
 
 </body>

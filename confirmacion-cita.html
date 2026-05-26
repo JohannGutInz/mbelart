@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cita Confirmada · M Belart Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- ═══ GOOGLE TAG MANAGER ═══ -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NFVZSD25');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="icon" href="assets/fotos/favicon/favicon.ico" sizes="any">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --dark:  #1e1612;
+      --cream: #f0e8db;
+      --warm:  #c9b49a;
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .ornament {
+      font-size: 1.4rem;
+      color: var(--warm);
+      opacity: 0.7;
+      margin-bottom: 1.8rem;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50%       { opacity: 0.9; transform: scale(1.1); }
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    h1 em { font-style: italic; color: var(--warm); }
+
+    p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--warm);
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--warm);
+      opacity: 0.4;
+      margin: 1.5rem auto 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border: 1px solid rgba(201,180,154,0.5);
+      color: var(--cream);
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--warm);
+      color: var(--dark);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--warm);
+      opacity: 0.4;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFVZSD25"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<p class="ornament">✦</p>
+<h1>¡Tu cita está<br><em>confirmada</em>!</h1>
+<div class="divider"></div>
+<p>Recibirás la confirmación en tu correo. Si tienes alguna duda, escríbenos por WhatsApp. ¡Te esperamos!</p>
+<a href="/" class="btn">Volver al inicio</a>
+
+<footer>M Belart Studio · Natural Brows by Mar Beltrán</footer>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'conversion',
+    page_path: '/confirmacion-cita',
+    page_title: 'Cita Confirmada'
+  });
+</script>
+
+</body>
+</html>
