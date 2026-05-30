@@ -978,6 +978,142 @@
   .section-label, .divider { opacity: 0; transition: opacity 0.6s ease; }
   .section-label.visible, .divider.visible { opacity: 1; }
 
+  /* =============================================
+     PANEL DESCRIPTION (gallery service desc)
+     ============================================= */
+  .panel-desc {
+    max-width: 820px;
+    margin: 0 auto 2.5rem;
+    padding: 2rem 2.5rem;
+    background: var(--light);
+    border-left: 2px solid var(--warm);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .panel-desc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--dark);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.9rem;
+  }
+
+  .panel-desc-text p {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #4a403a;
+    line-height: 1.85;
+    margin-bottom: 0.8rem;
+  }
+
+  .panel-desc-cuidados {
+    font-size: 0.82rem !important;
+    color: #6b5f58 !important;
+    padding: 0.8rem 1rem;
+    background: rgba(201,180,154,0.12);
+    border-radius: 4px;
+    margin-top: 0.5rem !important;
+  }
+
+  .panel-desc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .pdesc-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm);
+    border: 1px solid rgba(201,180,154,0.4);
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .panel-desc {
+      padding: 1.4rem 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+  }
+
+  /* =============================================
+     SERVICE LINK
+     ============================================= */
+  .service-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,180,154,0.3);
+    padding-bottom: 1px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .service-link:hover { color: var(--cream); border-color: var(--cream); }
+
+  /* =============================================
+     FAQ
+     ============================================= */
+  #faq { background: var(--light); }
+
+  .faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(44,36,32,0.1);
+  }
+  .faq-item:first-child { border-top: 1px solid rgba(44,36,32,0.1); }
+
+  .faq-question {
+    list-style: none;
+    padding: 1.2rem 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--warm);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  details[open] .faq-question::after { transform: rotate(45deg); }
+
+  .faq-answer {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #5a4f48;
+    line-height: 1.8;
+    padding-bottom: 1.2rem;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
